@@ -7,6 +7,10 @@
     <file url="file://$PROJECT_DIR$/spring-02-ioccontainer/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spring-03-autowired/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spring-03-autowired/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-04-annotation/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-04-annotation/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-05-aop/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-05-aop/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
   </component>
