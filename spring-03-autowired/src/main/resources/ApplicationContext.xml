@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config/>
+
+<!--    <bean id="human" class="top.novashen.pojo.Human">-->
+<!--        <property name="name" value="SYH"/>-->
+<!--        <property name="dog" ref="dog"/>-->
+<!--        <property name="cat" ref="cat"/>-->
+<!--    </bean>-->
+<!--    使用自动装配，抛弃以上写法-->
+    <bean id="human" class="top.novashen.pojo.Human">
+        <property name="name" value="SYH"/>
+    </bean>
+
+
+    <bean id="cat" class="top.novashen.pojo.Cat">
+        <property name="name" value="HLT"/>
+    </bean>
+    <bean id="dog" class="top.novashen.pojo.Dog">
+        <property name="name" value="NP"/>
+    </bean>
+
+
+
+</beans>
