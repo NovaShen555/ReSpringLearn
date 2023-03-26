@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+<!--    <context:component-scan base-package="com.XXX"/>-->
+    <context:property-placeholder location="classpath:db.properties"/>
+    <context:annotation-config/>
+    <beans>
+<!--        dataSource-->
+<!--        SpringJDBC-->
+        <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+                <property name="driverClassName" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${user}"/>
+                <property name="password" value="${password}"/>
+        </bean>
+        <!--&lt;!&ndash;        sqlSessionFactory&ndash;&gt;-->
+        <!--<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">-->
+        <!--    <property name="dataSource" ref="dataSource" />-->
+        <!--    <property name="configLocation" value="classpath:mybatis-config.xml"/>-->
+        <!--    <property name="mapperLocations" value="classpath:mapper/*.xml"/>-->
+        <!--</bean>-->
+
+        <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+            <property name="mapperInterface" value="top.novashen.mapper.UserMapper" />
+            <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+        </bean>
+
+
+        <!--任何方法都要实注入的管理器-->
+        <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+            <property name="dataSource" ref="dataSource"/>
+        </bean>
+
+        <!--&lt;!&ndash;方法一：使用拦截器并将事务并入aop中，即横切切入&ndash;&gt;-->
+        <!--<tx:advice id="interceptor">-->
+        <!--    <tx:attributes>-->
+        <!--        <tx:method name="*"/>-->
+        <!--    </tx:attributes>-->
+        <!--</tx:advice>-->
+
+        <!--<aop:config>-->
+        <!--    <aop:pointcut id="txPointCut" expression="execution(* top.novashen.mapper.*.*(..))"/>-->
+        <!--    <aop:advisor advice-ref="interceptor" pointcut-ref="txPointCut"/>-->
+        <!--</aop:config>-->
+
+        <!--方法二：使用注入sqlSessionFactory的事务管理器属性-->
+        <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+            <property name="dataSource" ref="dataSource" />
+            <property name="transactionFactory">
+                <bean class="org.apache.ibatis.transaction.managed.ManagedTransactionFactory" />
+            </property>
+        </bean>
+
+
+
+
+
+
+    </beans>
+
+</beans>

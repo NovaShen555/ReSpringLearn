@@ -7,12 +7,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="spring-06-mybatis" />
         <module name="spring-01-ioc" />
         <module name="spring-04-annotation" />
-        <module name="spring-03-autowired" />
         <module name="spring-02-ioccontainer" />
         <module name="spring-05-aop" />
+        <module name="spring-07-transaction" />
+        <module name="spring-06-mybatis" />
+        <module name="spring-03-autowired" />
       </profile>
     </annotationProcessing>
   </component>

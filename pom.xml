@@ -15,6 +15,7 @@
         <module>spring-04-annotation</module>
         <module>spring-05-aop</module>
         <module>spring-06-mybatis</module>
+        <module>spring-07-transaction</module>
     </modules>
 
     <properties>
